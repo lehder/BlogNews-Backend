@@ -2,6 +2,7 @@ package com.blognews.api.resource;
 
 import com.blognews.api.service.ICategoryService;
 import com.blognews.api.service.dto.CategoryDTO;
+import com.blognews.api.service.dto.CategoryMinimalDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,11 @@ public class CategoryResource {
 
         category = categoryService.obtenerTodas();
         return category;
+    }
+    @GetMapping("/categories-min")
+    public List<CategoryMinimalDTO> obtenerListaMinCategories(){
+        List<CategoryMinimalDTO> categoryMinimalList = categoryService.obtenerTodasMin();
+        return categoryMinimalList;
     }
 
 }

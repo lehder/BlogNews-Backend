@@ -3,6 +3,7 @@ package com.blognews.api.service.impl;
 import com.blognews.api.model.Category;
 import com.blognews.api.service.ICategoryService;
 import com.blognews.api.service.dto.CategoryDTO;
+import com.blognews.api.service.dto.CategoryMinimalDTO;
 import com.blognews.api.service.mapper.ModelMapperUtils;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,12 @@ public class CategoryService implements ICategoryService {
     public List<CategoryDTO> obtenerTodas() {
         List<Category> categories = initializeCategories();
         return ModelMapperUtils.mapAll(categories, CategoryDTO.class);
+    }
+
+    @Override
+    public List<CategoryMinimalDTO> obtenerTodasMin() {
+        List<Category> categories = initializeCategories();
+        return ModelMapperUtils.mapAll(categories, CategoryMinimalDTO.class);
     }
 
     private List<Category> initializeCategories() {
