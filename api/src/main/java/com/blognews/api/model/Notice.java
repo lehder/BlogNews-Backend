@@ -9,7 +9,7 @@ public class Notice {
     private String content;
     private String image;
     private String date;
-    private String categoria_id;
+    private String categorize_id;
 
     public Notice(Integer id, String title, String content, String image, String date, String categoria_id){
         this.id = id;
@@ -17,14 +17,6 @@ public class Notice {
         this.content = content;
         this.image = image;
         this.date = date;
-        this.categoria_id = categoria_id;
-    }
-
-    public Notice(int id, String titulo) {
-
-    }
-
-    public static void add(Notice notice1) {
-
+        this.categorize_id = categoria_id;
     }
 }
