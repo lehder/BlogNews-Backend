@@ -11,4 +11,5 @@ import java.util.List;
 public interface INoticeService {
     public List<NoticeDTO> obtenerTodas();
     public List<NoticeMinimalDTO> obtenerTodasMin();
+    public NoticeDTO guardar(NoticeDTO noticeDTO);
 }

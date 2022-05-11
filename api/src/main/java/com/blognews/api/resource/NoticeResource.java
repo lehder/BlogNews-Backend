@@ -4,9 +4,7 @@ import com.blognews.api.model.Notice;
 import com.blognews.api.service.INoticeService;
 import com.blognews.api.service.dto.NoticeDTO;
 import com.blognews.api.service.dto.NoticeMinimalDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,5 +32,11 @@ public class NoticeResource {
     public List<NoticeMinimalDTO> obtenerListaMinNotices(){
         List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
         return noticeMinimalList;
+    }
+
+    @PostMapping("/notices")
+    public NoticeDTO crearNotice(@RequestBody NoticeDTO noticeDTO){
+        return noticeService.guardar(noticeDTO);
+        //return noticeDTO;
     }
 }

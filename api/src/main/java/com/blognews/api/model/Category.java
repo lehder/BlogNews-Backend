@@ -2,17 +2,26 @@ package com.blognews.api.model;
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 @Data
+@Entity
+@Table(name = "Category")
 public class Category {
-        private Integer id;
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+
+        @Column(name = "name")
         private String name;
+
+        @Column(name = "description")
         private String description;
+        
+        @Column(name = "image")
         private String image;
 
-        public Category(Integer id, String name, String description, String image){
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.image = image;
+        public Category(int id, String nacionales, String todas_las_noticias_nacionales, String s) {
         }
 }

@@ -2,21 +2,32 @@ package com.blognews.api.model;
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 @Data
+@Entity
+@Table(name = "Notice")
 public class Notice {
-    private Integer id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "content")
     private String content;
+
+    @Column(name = "image")
     private String image;
+
+    @Column(name = "date")
     private String date;
+
+    @Column(name = "categorize_id")
     private String categorize_id;
 
-    public Notice(Integer id, String title, String content, String image, String date, String categoria_id){
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.image = image;
-        this.date = date;
-        this.categorize_id = categoria_id;
+    public Notice(long id, String nacionales, String todas_las_noticias_nacional, String s, String s1, String s2) {
     }
 }

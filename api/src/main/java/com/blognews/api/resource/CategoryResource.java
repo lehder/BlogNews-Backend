@@ -3,9 +3,7 @@ package com.blognews.api.resource;
 import com.blognews.api.service.ICategoryService;
 import com.blognews.api.service.dto.CategoryDTO;
 import com.blognews.api.service.dto.CategoryMinimalDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +15,7 @@ public class CategoryResource {
     private ICategoryService categoryService;
 
     public CategoryResource(ICategoryService categoryService){
+
         this.categoryService = categoryService;
     }
 
@@ -34,4 +33,9 @@ public class CategoryResource {
         return categoryMinimalList;
     }
 
+    @PostMapping("/categories")
+    public CategoryDTO crearCategory(@RequestBody CategoryDTO categoryDTO){
+        return categoryService.guardar(categoryDTO);
+        //return categoryDTO;
+    }
 }
