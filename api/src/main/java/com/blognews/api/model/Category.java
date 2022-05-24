@@ -1,9 +1,13 @@
 package com.blognews.api.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "Category")
@@ -18,10 +22,11 @@ public class Category {
 
         @Column(name = "description")
         private String description;
-        
-        @Column(name = "image")
-        private String image;
 
-        public Category(int id, String nacionales, String todas_las_noticias_nacionales, String s) {
-        }
+        @Lob
+        @Column(name = "image")
+        private byte [] image;
+
 }
+
+

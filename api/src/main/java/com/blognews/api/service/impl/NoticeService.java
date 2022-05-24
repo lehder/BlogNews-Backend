@@ -43,4 +43,14 @@ public class NoticeService implements INoticeService {
         return ModelMapperUtils.map(noticeEntidad, NoticeDTO.class);
     }
 
+    @Override
+    public List<NoticeDTO> obtenerTodasPorCategoria(Long categoryId) {
+        return null;
+    }
+
+    @Override
+    public NoticeDTO getById(Long id) {
+        return null;
+    }
+
 }

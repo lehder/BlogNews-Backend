@@ -7,6 +7,7 @@ import com.blognews.api.service.dto.CategoryDTO;
 import com.blognews.api.service.dto.CategoryMinimalDTO;
 import com.blognews.api.service.mapper.ModelMapperUtils;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,16 @@ public class CategoryService implements ICategoryService {
     public List<CategoryMinimalDTO> obtenerTodasMin() {
         List<Category> categories = categoryRepository.findAll();
         return ModelMapperUtils.mapAll(categories, CategoryMinimalDTO.class);
+    }
+
+    @Override
+    public CategoryDTO obtenerCategory(Long id){
+     Optional<Category> categoryOptional = categoryRepository.findById(id);
+     if(categoryOptional.isPresent()){
+        return ModelMapperUtils.map(categoryOptional.get(), CategoryDTO.class);
+     }else {
+         return null;
+     }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.blognews.api.service.dto;
 
+import com.blognews.api.model.Category;
 import lombok.Data;
 
 @Data
@@ -9,5 +10,5 @@ public class NoticeDTO {
     private String content;
     private String image;
     private String date;
-    private String category_id;
+    private CategoryDTO category;
 }

@@ -11,5 +11,6 @@ import java.util.List;
 public interface ICategoryService {
     public List<CategoryDTO> obtenerTodas();
     public List<CategoryMinimalDTO> obtenerTodasMin();
+    public CategoryDTO obtenerCategory(Long id);
     public CategoryDTO guardar(CategoryDTO categoryDTO);
 }

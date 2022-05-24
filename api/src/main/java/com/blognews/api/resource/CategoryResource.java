@@ -27,15 +27,25 @@ public class CategoryResource {
         category = categoryService.obtenerTodas();
         return category;
     }
-    @GetMapping("/categories-min")
+
+    @GetMapping("/category/{id}")
+    public CategoryDTO obtenerCategory(@PathVariable Long id){
+        return categoryService.obtenerCategory(id);
+    }
+
+    @GetMapping("/category-min")
     public List<CategoryMinimalDTO> obtenerListaMinCategories(){
         List<CategoryMinimalDTO> categoryMinimalList = categoryService.obtenerTodasMin();
         return categoryMinimalList;
     }
 
-    @PostMapping("/categories")
+    @PostMapping("/category")
     public CategoryDTO crearCategory(@RequestBody CategoryDTO categoryDTO){
         return categoryService.guardar(categoryDTO);
-        //return categoryDTO;
+    }
+
+    @PutMapping("/category")
+    public CategoryDTO modificarCategory(@RequestBody CategoryDTO cartegoryDTO){
+        return categoryService.guardar(new CategoryDTO());
     }
 }

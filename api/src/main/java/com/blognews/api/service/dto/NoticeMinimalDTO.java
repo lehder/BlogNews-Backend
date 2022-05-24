@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class NoticeMinimalDTO {
-    private Integer id;
+    private Long id;
     private String title;
     private String content;
     private String image;

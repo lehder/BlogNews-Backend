@@ -1,9 +1,15 @@
 package com.blognews.api.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "Notice")
@@ -19,15 +25,17 @@ public class Notice {
     @Column(name = "content")
     private String content;
 
+    @Lob
     @Column(name = "image")
-    private String image;
+    private byte [] image;
 
     @Column(name = "date")
     private String date;
 
-    @Column(name = "categorize_id")
-    private String categorize_id;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    private Category category;
 
-    public Notice(long id, String nacionales, String todas_las_noticias_nacional, String s, String s1, String s2) {
-    }
+
 }

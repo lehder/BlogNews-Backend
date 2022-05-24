@@ -9,5 +9,6 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface ICategoryRepository extends JpaRepository<Category, Long> {
+     <name> List<Category> findByCategory(name description);
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
 @RestController
 @RequestMapping("/api")
 public class NoticeResource {
@@ -19,12 +20,24 @@ public class NoticeResource {
         this.noticeService = noticeService;
     }
 
-    @GetMapping("/notice")
+    @GetMapping("/notices")
     public List<NoticeDTO> obtainListNotice(){
 
         List<NoticeDTO> notice = new ArrayList<NoticeDTO>();
 
         notice = noticeService.obtenerTodas();
+        return notice;
+    }
+
+    @GetMapping("/notices/{id}")
+    public NoticeDTO obtainNotice(@PathVariable Long id){
+        return noticeService.getById(id);
+    }
+
+    @GetMapping("/notices/category/{categoryId}")
+    public List<NoticeDTO> obtainListNotice(@PathVariable Long categoryId){
+        List<NoticeDTO> notice = new ArrayList<NoticeDTO>();
+        notice = noticeService.obtenerTodasPorCategoria(categoryId);
         return notice;
     }
 
