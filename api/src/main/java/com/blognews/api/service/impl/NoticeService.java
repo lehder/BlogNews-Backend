@@ -6,11 +6,13 @@ import com.blognews.api.service.INoticeService;
 import com.blognews.api.service.dto.NoticeDTO;
 import com.blognews.api.service.dto.NoticeMinimalDTO;
 import com.blognews.api.service.mapper.ModelMapperUtils;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NoticeService implements INoticeService {
@@ -45,12 +47,27 @@ public class NoticeService implements INoticeService {
 
     @Override
     public List<NoticeDTO> obtenerTodasPorCategoria(Long categoryId) {
-        return null;
+        List<Notice> lista = noticeRepository. findAllByCategoryId(categoryId);
+        return ModelMapperUtils.mapAll(lista, NoticeDTO.class);
     }
 
     @Override
+
     public NoticeDTO getById(Long id) {
-        return null;
+
+        Optional<Notice> noticeOptional = noticeRepository.findById(id);
+
+        If(noticeOptional.isPresent());{
+
+            return ModelMapperUtils.map(noticeOptional.get(), NoticeDTO.class);
+
+        }
+
+    }
+
+    private void If(boolean present) {
     }
 
 }
+
+
