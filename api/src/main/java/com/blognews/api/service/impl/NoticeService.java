@@ -6,23 +6,31 @@ import com.blognews.api.service.INoticeService;
 import com.blognews.api.service.dto.NoticeDTO;
 import com.blognews.api.service.dto.NoticeMinimalDTO;
 import com.blognews.api.service.mapper.ModelMapperUtils;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
+import sun.jvm.hotspot.utilities.Observable;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class NoticeService implements INoticeService {
 
+    private final Object http;
     private INoticeRepository noticeRepository;
 
     // constructor
-    public NoticeService(INoticeRepository noticeRepository){
+    public NoticeService(INoticeRepository noticeRepository, Object http){
         this.noticeRepository = noticeRepository;
+        this.http = http;
     }
+    
+
+    public getNoticeById(id: number): Observable<Notice>{
+        const url = 'http://localhost:8080/apio/notices'+id;
+        return this.http.get<Notice>(url);
+    }
+
+
 
 
     @Override
