@@ -1,6 +1,5 @@
-package com.blognews.api.resource;
+package com.blognews.api.model.resource;
 
-import com.blognews.api.model.Notice;
 import com.blognews.api.service.INoticeService;
 import com.blognews.api.service.dto.NoticeDTO;
 import com.blognews.api.service.dto.NoticeMinimalDTO;
@@ -14,29 +13,40 @@ import java.util.List;
 public class NoticeResource {
 
     private INoticeService noticeService;
-
     public NoticeResource(INoticeService noticeService) {
         this.noticeService = noticeService;
     }
 
     @GetMapping("/notice")
-    public List<NoticeDTO> obtainListNotice(){
-
+    public List<NoticeDTO> obtenerListaNotyces(){
         List<NoticeDTO> notice = new ArrayList<NoticeDTO>();
-
         notice = noticeService.obtenerTodas();
         return notice;
     }
 
-    @GetMapping("/notices-min")
-    public List<NoticeMinimalDTO> obtenerListaMinNotices(){
+    @GetMapping("/notice/{id}")
+    public NoticeDTO obtenerNotice(@PathVariable Long id){
+        return noticeService.obtenerNotice(id);
+    }
+
+    @GetMapping("/notice-min")
+    public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
         List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
         return noticeMinimalList;
     }
 
-    @PostMapping("/notices")
-    public NoticeDTO crearNotice(@RequestBody NoticeDTO noticeDTO){
+    @PostMapping("/notice")
+    public NoticeDTO crearNotyces(@RequestBody NoticeDTO noticeDTO){
         return noticeService.guardar(noticeDTO);
-        //return noticeDTO;
+    }
+
+    @PutMapping("/notice")
+    public NoticeDTO modificarNotice(@RequestBody NoticeDTO noticeDTO){
+        return noticeService.guardar(noticeDTO);
+    }
+
+    @DeleteMapping("/category/{id}")
+      public void borrarNotice(@PathVariable Long id){
+        noticeService.borrar(id);
     }
 }

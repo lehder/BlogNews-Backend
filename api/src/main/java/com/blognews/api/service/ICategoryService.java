@@ -12,4 +12,6 @@ public interface ICategoryService {
     public List<CategoryDTO> obtenerTodas();
     public List<CategoryMinimalDTO> obtenerTodasMin();
     public CategoryDTO guardar(CategoryDTO categoryDTO);
+    public CategoryDTO obtenerCategory(Long id);
+    public void borrar(Long id);
 }
