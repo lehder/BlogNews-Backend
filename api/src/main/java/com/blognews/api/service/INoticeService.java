@@ -12,5 +12,4 @@ public interface INoticeService {
     public List<NoticeMinimalDTO> obtenerTodasMin();
     public NoticeDTO guardar(NoticeDTO noticeDTO);
     public NoticeDTO obtenerNotice(Long id);
-    public void  borrar(Long id);
 }

@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface ICategoryRepository extends JpaRepository<Category, Long> {
-    Otional<Category> getById();
-    // List<Category> findByName(String name);
+  // List<Category> findByName(String name);
 }

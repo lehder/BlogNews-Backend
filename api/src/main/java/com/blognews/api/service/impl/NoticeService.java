@@ -54,14 +54,4 @@ public class NoticeService implements INoticeService {
         return ModelMapperUtils.map(noticeEntidad, NoticeDTO.class);
     }
 
-    @Override
-    public void borrar(Long id){
-        Optional<Notice> noticeOptional  = noticeRepository.findById(id);
-        if (noticeOptional.isPresent()) {
-            noticeRepository.delete(noticeOptional.get());
-        }else {
-            System.out.println("No existe la Noticia:" + id);
-        }
-    }
-
 }

@@ -44,9 +44,4 @@ public class NoticeResource {
     public NoticeDTO modificarNotice(@RequestBody NoticeDTO noticeDTO){
         return noticeService.guardar(noticeDTO);
     }
-
-    @DeleteMapping("/category/{id}")
-      public void borrarNotice(@PathVariable Long id){
-        noticeService.borrar(id);
-    }
 }

@@ -51,14 +51,4 @@ public class CategoryService implements ICategoryService {
         return ModelMapperUtils.map(categoryEntidad, CategoryDTO.class);
     }
 
-    @Override
-    public void borrar(Long id){
-        Optional<Category> categoryOptional  = categoryRepository.findById(id);
-        if (categoryOptional.isPresent()) {
-            categoryRepository.delete(categoryOptional.get());
-        }else {
-            System.out.println("No existe la Categoria:" + id);
-        }
-    }
-
 }
