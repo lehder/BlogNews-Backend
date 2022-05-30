@@ -9,6 +9,10 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface INoticeRepository extends JpaRepository<Notice, Long> {
+<<<<<<< HEAD
 
     List<Notice> findAllByCategoryId(Long categoryId);
+=======
+   // List<Notice> findByTitle(String title);
+>>>>>>> prueba
 }

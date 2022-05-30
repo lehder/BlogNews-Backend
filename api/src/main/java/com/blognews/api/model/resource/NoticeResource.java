@@ -1,6 +1,5 @@
-package com.blognews.api.resource;
+package com.blognews.api.model.resource;
 
-import com.blognews.api.model.Notice;
 import com.blognews.api.service.INoticeService;
 import com.blognews.api.service.dto.NoticeDTO;
 import com.blognews.api.service.dto.NoticeMinimalDTO;
@@ -15,20 +14,24 @@ import java.util.List;
 public class NoticeResource {
 
     private INoticeService noticeService;
-
     public NoticeResource(INoticeService noticeService) {
         this.noticeService = noticeService;
     }
 
+<<<<<<< HEAD:api/src/main/java/com/blognews/api/resource/NoticeResource.java
     @GetMapping("/notices")
     public List<NoticeDTO> obtainListNotice(){
 
+=======
+    @GetMapping("/notice")
+    public List<NoticeDTO> obtenerListaNotyces(){
+>>>>>>> prueba:api/src/main/java/com/blognews/api/model/resource/NoticeResource.java
         List<NoticeDTO> notice = new ArrayList<NoticeDTO>();
-
         notice = noticeService.obtenerTodas();
         return notice;
     }
 
+<<<<<<< HEAD:api/src/main/java/com/blognews/api/resource/NoticeResource.java
     @GetMapping("/notices/{id}")
     public NoticeDTO obtainNotice(@PathVariable Long id){
         return noticeService.getById(id);
@@ -43,13 +46,26 @@ public class NoticeResource {
 
     @GetMapping("/notices-min")
     public List<NoticeMinimalDTO> obtenerListaMinNotices(){
+=======
+    @GetMapping("/notice/{id}")
+    public NoticeDTO obtenerNotice(@PathVariable Long id){
+        return noticeService.obtenerNotice(id);
+    }
+
+    @GetMapping("/notice-min")
+    public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
+>>>>>>> prueba:api/src/main/java/com/blognews/api/model/resource/NoticeResource.java
         List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
         return noticeMinimalList;
     }
 
-    @PostMapping("/notices")
-    public NoticeDTO crearNotice(@RequestBody NoticeDTO noticeDTO){
+    @PostMapping("/notice")
+    public NoticeDTO crearNotyces(@RequestBody NoticeDTO noticeDTO){
         return noticeService.guardar(noticeDTO);
-        //return noticeDTO;
+    }
+
+    @PutMapping("/notice")
+    public NoticeDTO modificarNotice(@RequestBody NoticeDTO noticeDTO){
+        return noticeService.guardar(noticeDTO);
     }
 }
