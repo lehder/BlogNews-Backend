@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
 @RestController
 @RequestMapping("/api")
 public class NoticeResource {
@@ -18,35 +17,13 @@ public class NoticeResource {
         this.noticeService = noticeService;
     }
 
-<<<<<<< HEAD:api/src/main/java/com/blognews/api/resource/NoticeResource.java
-    @GetMapping("/notices")
-    public List<NoticeDTO> obtainListNotice(){
-
-=======
     @GetMapping("/notice")
     public List<NoticeDTO> obtenerListaNotyces(){
->>>>>>> prueba:api/src/main/java/com/blognews/api/model/resource/NoticeResource.java
         List<NoticeDTO> notice = new ArrayList<NoticeDTO>();
         notice = noticeService.obtenerTodas();
         return notice;
     }
 
-<<<<<<< HEAD:api/src/main/java/com/blognews/api/resource/NoticeResource.java
-    @GetMapping("/notices/{id}")
-    public NoticeDTO obtainNotice(@PathVariable Long id){
-        return noticeService.getById(id);
-    }
-
-    @GetMapping("/notices/category/{categoryId}")
-    public List<NoticeDTO> obtainListNotice(@PathVariable Long categoryId){
-        List<NoticeDTO> notice = new ArrayList<NoticeDTO>();
-        notice = noticeService.obtenerTodasPorCategoria(categoryId);
-        return notice;
-    }
-
-    @GetMapping("/notices-min")
-    public List<NoticeMinimalDTO> obtenerListaMinNotices(){
-=======
     @GetMapping("/notice/{id}")
     public NoticeDTO obtenerNotice(@PathVariable Long id){
         return noticeService.obtenerNotice(id);
@@ -54,7 +31,6 @@ public class NoticeResource {
 
     @GetMapping("/notice-min")
     public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
->>>>>>> prueba:api/src/main/java/com/blognews/api/model/resource/NoticeResource.java
         List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
         return noticeMinimalList;
     }
@@ -67,5 +43,10 @@ public class NoticeResource {
     @PutMapping("/notice")
     public NoticeDTO modificarNotice(@RequestBody NoticeDTO noticeDTO){
         return noticeService.guardar(noticeDTO);
+    }
+
+    @DeleteMapping("/category/{id}")
+    public void borrarCategory(@PathVariable Long id){
+        noticeService.borrar(id);
     }
 }

@@ -7,10 +7,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface ICategoryRepository extends JpaRepository<Category, Long> {
-<<<<<<< HEAD
-     <name> List<Category> findByCategory(name description);
-
-=======
-  // List<Category> findByName(String name);
->>>>>>> prueba
+      // List<Category> findByName(String name);
 }

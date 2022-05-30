@@ -11,10 +11,6 @@ public interface INoticeService {
     public List<NoticeDTO> obtenerTodas();
     public List<NoticeMinimalDTO> obtenerTodasMin();
     public NoticeDTO guardar(NoticeDTO noticeDTO);
-<<<<<<< HEAD
-    public NoticeDTO getById(Long id);
-    public List<NoticeDTO> obtenerTodasPorCategoria(Long categoryId);
-=======
     public NoticeDTO obtenerNotice(Long id);
->>>>>>> prueba
+    public void borrar(Long id);
 }

@@ -47,4 +47,9 @@ public class CategoryResource {
         return categoryService.guardar(categoryDTO);
     }
 
+    @DeleteMapping("/category/{id}")
+    public void borrarCategory(@PathVariable Long id){
+        categoryService.borrar(id);
+    }
+
 }
