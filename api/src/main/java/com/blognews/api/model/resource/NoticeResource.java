@@ -17,36 +17,41 @@ public class NoticeResource {
         this.noticeService = noticeService;
     }
 
-    @GetMapping("/notice")
-    public List<NoticeDTO> obtenerListaNotyces(){
-        List<NoticeDTO> notice = new ArrayList<NoticeDTO>();
-        notice = noticeService.obtenerTodas();
-        return notice;
+    @CrossOrigin
+    @GetMapping("/notices")
+    public List<NoticeDTO> obtenerListaNotices(){
+        List<NoticeDTO> noticesList = new ArrayList<NoticeDTO>();
+        noticesList = noticeService.obtenerTodas();
+        return noticesList;
     }
 
-    @GetMapping("/notice/{id}")
+    @CrossOrigin
+    @GetMapping("/notices/{id}")
     public NoticeDTO obtenerNotice(@PathVariable Long id){
         return noticeService.obtenerNotice(id);
     }
 
-    @GetMapping("/notice-min")
-    public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
-        List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
-        return noticeMinimalList;
-    }
+    //@GetMapping("/notice-min")
+    //public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
+        //List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
+        //return noticeMinimalList;
+    //}
 
-    @PostMapping("/notice")
+    @CrossOrigin
+    @PostMapping("/notices")
     public NoticeDTO crearNotyces(@RequestBody NoticeDTO noticeDTO){
         return noticeService.guardar(noticeDTO);
     }
 
-    @PutMapping("/notice")
+    @CrossOrigin
+    @PutMapping("/notices")
     public NoticeDTO modificarNotice(@RequestBody NoticeDTO noticeDTO){
         return noticeService.guardar(noticeDTO);
     }
 
-    @DeleteMapping("/category/{id}")
-    public void borrarCategory(@PathVariable Long id){
+    @CrossOrigin
+    @DeleteMapping("/notices/{id}")
+    public void borrarNotice(@PathVariable Long id){
         noticeService.borrar(id);
     }
 }

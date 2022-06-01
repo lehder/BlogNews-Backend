@@ -13,41 +13,46 @@ import java.util.List;
 public class CategoryResource {
 
     private ICategoryService categoryService;
-
     public CategoryResource(ICategoryService categoryService){
-
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/category")
-        public List<CategoryDTO> obtenerListaCategoryes(){
-        List<CategoryDTO> categoryList = new ArrayList<CategoryDTO>();
-        List<CategoryDTO> categoriesList = categoryService.obtenerTodas();
+    @CrossOrigin
+    @GetMapping("/categories")
+        public List<CategoryDTO> obtenerListaCategories(){
+        List<CategoryDTO> categoriesList = new ArrayList<CategoryDTO>();
+        //List<CategoryDTO> categoriesList = categoryService.obtenerTodas();
+        categoriesList = categoryService.obtenerTodas();
         return categoriesList;
     }
 
-    @GetMapping("/category/{id}")
+    @CrossOrigin
+    @GetMapping("/categories/{id}")
         public CategoryDTO obtenerCategory(@PathVariable Long id){
-        return categoryService.obtenerCategory(id);
+          return categoryService.obtenerCategory(id);
     }
 
-    @GetMapping("/category-min")
-    public List<CategoryMinimalDTO> obtenerListaMinCategoryes(){
+      //@CrossOrigin
+    //@GetMapping("/category-min")
+    //public List<CategoryMinimalDTO> obtenerListaMinCategoryes(){
        // List<CategoryMinimalDTO> categoryMinimalList = categoryService.obtenerTodasMin();
-        return categoryService.obtenerTodasMin();
-    }
+       // return categoryService.obtenerTodasMin();
+    //}
 
-    @PostMapping("/category")
+    @CrossOrigin
+    @PostMapping("/categories")
     public CategoryDTO crearCategory(@RequestBody CategoryDTO categoryDTO){
         return categoryService.guardar(categoryDTO);
     }
 
-    @PutMapping("/category")
+    @CrossOrigin
+    @PutMapping("/categories")
     public CategoryDTO modificarCategory(@RequestBody CategoryDTO categoryDTO){
         return categoryService.guardar(categoryDTO);
     }
 
-    @DeleteMapping("/category/{id}")
+    @CrossOrigin
+    @DeleteMapping("/categories/{id}")
     public void borrarCategory(@PathVariable Long id){
         categoryService.borrar(id);
     }
