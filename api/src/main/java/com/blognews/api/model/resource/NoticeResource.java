@@ -31,11 +31,11 @@ public class NoticeResource {
         return noticeService.obtenerNotice(id);
     }
 
-    //@GetMapping("/notice-min")
-    //public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
-        //List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
-        //return noticeMinimalList;
-    //}
+    @GetMapping("/notice-min")
+    public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
+        List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
+        return noticeMinimalList;
+    }
 
     @CrossOrigin
     @PostMapping("/notices")
