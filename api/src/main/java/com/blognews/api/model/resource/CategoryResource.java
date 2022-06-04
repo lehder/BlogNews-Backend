@@ -32,12 +32,12 @@ public class CategoryResource {
           return categoryService.obtenerCategory(id);
     }
 
-      //@CrossOrigin
-    //@GetMapping("/category-min")
-    //public List<CategoryMinimalDTO> obtenerListaMinCategoryes(){
-       // List<CategoryMinimalDTO> categoryMinimalList = categoryService.obtenerTodasMin();
-       // return categoryService.obtenerTodasMin();
-    //}
+      @CrossOrigin
+    @GetMapping("/category-min")
+    public List<CategoryMinimalDTO> obtenerListaMinCategoryes(){
+        List<CategoryMinimalDTO> categoryMinimalList = categoryService.obtenerTodasMin();
+        return categoryService.obtenerTodasMin();
+    }
 
     @CrossOrigin
     @PostMapping("/categories")
