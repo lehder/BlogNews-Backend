@@ -51,6 +51,12 @@ public class CategoryResource {
         return categoryService.guardar(categoryDTO);
     }
 
+    // @CrossOrigin
+    // @PutMapping("/categories/asistente")
+    // public void asistenteCreacion(@RequestBody Long total){
+        // categoryService.asistenteCreacion(total);
+    // }
+
     @CrossOrigin
     @DeleteMapping("/categories/{id}")
     public void borrarCategory(@PathVariable Long id){
