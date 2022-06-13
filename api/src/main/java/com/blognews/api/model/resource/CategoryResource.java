@@ -33,7 +33,7 @@ public class CategoryResource {
     }
 
       @CrossOrigin
-    @GetMapping("/category-min")
+    @GetMapping("/categories-min")
     public List<CategoryMinimalDTO> obtenerListaMinCategoryes(){
         List<CategoryMinimalDTO> categoryMinimalList = categoryService.obtenerTodasMin();
         return categoryService.obtenerTodasMin();
