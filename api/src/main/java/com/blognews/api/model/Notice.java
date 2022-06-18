@@ -32,6 +32,11 @@ public class Notice {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "categoria_id")
+    private String categoria_id;
+
+
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
     @OnDelete(action = OnDeleteAction.NO_ACTION)

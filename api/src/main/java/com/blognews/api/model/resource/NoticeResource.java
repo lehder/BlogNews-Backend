@@ -31,15 +31,16 @@ public class NoticeResource {
         return noticeService.obtenerNotice(id);
     }
 
-    @GetMapping("/notice-min")
-    public List<NoticeMinimalDTO> obtenerListaMinNotyces(){
+    @CrossOrigin
+    @GetMapping("/notices-min")
+    public List<NoticeMinimalDTO> obtenerListaMinNotices() {
         List<NoticeMinimalDTO> noticeMinimalList = noticeService.obtenerTodasMin();
-        return noticeMinimalList;
+        return noticeService.obtenerTodasMin();
     }
 
     @CrossOrigin
     @PostMapping("/notices")
-    public NoticeDTO crearNotyces(@RequestBody NoticeDTO noticeDTO){
+    public NoticeDTO crearNotice(@RequestBody NoticeDTO noticeDTO){
         return noticeService.guardar(noticeDTO);
     }
 

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface INoticeRepository extends JpaRepository<Notice, Long> {
-    // List<Notice> findByTitle(String title);
+    // Lista<Notice> findByTitle(String title);
 }
