@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.DELETE, RequestMethod.GET, RequestMethod.PUT})
 @RestController
 @RequestMapping("/api")
 public class CategoryResource {
@@ -32,7 +33,7 @@ public class CategoryResource {
           return categoryService.obtenerCategory(id);
     }
 
-      @CrossOrigin
+    @CrossOrigin
     @GetMapping("/categories-min")
     public List<CategoryMinimalDTO> obtenerListaMinCategoryes(){
         List<CategoryMinimalDTO> categoryMinimalList = categoryService.obtenerTodasMin();

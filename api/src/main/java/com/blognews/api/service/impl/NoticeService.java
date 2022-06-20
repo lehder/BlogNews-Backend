@@ -1,19 +1,16 @@
 package com.blognews.api.service.impl;
 
-import com.blognews.api.model.Category;
 import com.blognews.api.model.Notice;
 import com.blognews.api.repository.INoticeRepository;
 import com.blognews.api.service.INoticeService;
-import com.blognews.api.service.dto.CategoryDTO;
 import com.blognews.api.service.dto.NoticeDTO;
 import com.blognews.api.service.dto.NoticeMinimalDTO;
 import com.blognews.api.service.mapper.ModelMapperUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList;
 
 @Service
 public class NoticeService implements INoticeService {

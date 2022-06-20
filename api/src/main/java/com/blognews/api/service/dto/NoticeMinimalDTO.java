@@ -9,5 +9,5 @@ public class NoticeMinimalDTO {
     private String content;
     private String image;
     private String date;
-    private String category_id;
+    private CategoryDTO category;
 }
